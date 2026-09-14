@@ -50,4 +50,10 @@ public class ProductController {
                 .buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
+
+    public  ResponseEntity <Void> delete(@PathVariable Long id){
+        pservice.delete(id);
+
+        return ResponseEntity.noContent().build();    }
+
 }
