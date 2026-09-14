@@ -1,6 +1,5 @@
 package com.devsuperior.dscommerce.repositories;
 
-
 import com.devsuperior.dscommerce.entities.User;
 import com.devsuperior.dscommerce.projections.UserDetailsProjection;
 import org.springframework.data.jpa.repository.JpaRepository;

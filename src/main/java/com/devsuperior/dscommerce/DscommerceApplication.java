@@ -10,7 +10,7 @@ public class DscommerceApplication {
 		SpringApplication.run(DscommerceApplication.class, args);
 
 
-		System.out.print("Ola Login validado");
+		System.out.print("Ola Login validad");
 
 
 	}
