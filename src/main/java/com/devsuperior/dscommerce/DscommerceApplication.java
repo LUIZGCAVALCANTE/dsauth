@@ -11,6 +11,10 @@ public class DscommerceApplication {
 
 
 		System.out.print("Ola Login validad");
+		System.out.print("Ola ROLES VALIDADOS");
+		System.out.print("Correção dos  ROLES ");
+
+
 
 
 	}
