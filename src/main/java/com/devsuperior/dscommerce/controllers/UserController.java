@@ -17,7 +17,8 @@ public class UserController {
     private UserService Uservice;
 
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR')")    @GetMapping(value = "/me")
+    @PreAuthorize("hasAnyRole('ADMIN', 'OPERATOR')")
+    @GetMapping(value = "/me")
     public ResponseEntity<UserDTO> getMe() {
         UserDTO dto = Uservice.getMe();
         return ResponseEntity.ok(dto);
