@@ -9,7 +9,8 @@ import com.devsuperior.dscommerce.entities.*;
 import com.devsuperior.dscommerce.repositories.OrderItemRepository;
 import com.devsuperior.dscommerce.repositories.OrderRepository;
 import com.devsuperior.dscommerce.repositories.ProductRepository;
-import jakarta.transaction.Transactional;
+import com.devsuperior.dscommerce.services.exceptions.ResourceNotFoundException;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -37,15 +38,15 @@ public class OrderService {
 
     @Autowired
     private AuthService authService;
-
+    @Transactional(readOnly = true)
     public OrderDTO findById(Long id) {
         Order order = ordRepository.findById(id).orElseThrow(
-                () -> new UsernameNotFoundException("Order nao existente"));
+                () -> new ResourceNotFoundException("Order nao existente"));
         authService.validateSelfOrAdmin(order.getClient().getId());
         return new OrderDTO(order);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public OrderDTO insert(OrderDTO dto) {
 
         Order order = new Order();
